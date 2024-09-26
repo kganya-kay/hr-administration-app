@@ -63,6 +63,8 @@ model User {
     accounts      Account[]
     sessions      Session[]
     posts         Post[]
+    hashedPassword String @default("Password123#")
+    employees Employee[]
 }
 
 model VerificationToken {
@@ -72,3 +74,50 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Employee {
+    id          String    @id @default(cuid())
+    name        String
+    lastName    String
+    contactNumber Int
+    email       String?   @unique
+    image       String? 
+    createdAt   DateTime @default(now())
+    createdBy   String?
+    user        User @relation(fields: [userid], references: [id])
+    userid      String      
+    managers    Manager[]
+    manager     String?
+    department  String?
+    departments Department[]
+    status      Boolean @default(true)
+    hashedPassword String @default("Password123#")
+    role String @default("employee")
+}
+model Manager {
+    id          String    @id @default(cuid())
+    employee    Employee @relation(fields: [employeeid], references: [id])
+    employeeid  String  @unique
+    departments Department[]
+   
+}
+model Department {
+    id          String    @id @default(cuid())
+    name        String
+    managers    Manager[]
+    Employee    Employee[]
+    status      Boolean
+    roles Role[]
+    manager String? @default("Super User")
+}
+
+model Role {
+    
+    managerid   String @unique
+    employeeid String @unique
+    administrator Department @relation(fields: [administratorid], references: [id])
+    administratorid String @unique
+}
+
+
+
