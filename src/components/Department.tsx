@@ -17,9 +17,7 @@ export default function Department({ department }: DepartmentProps) {
             <p className="mt-1 truncate text-xs leading-5 text-gray-500">
               {department.status}
             </p>
-            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-              {department.manager}
-            </p>
+            
             <p className="mt-1 truncate text-xs leading-5 text-gray-500"></p>
           </div>
         </div>

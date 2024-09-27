@@ -67,14 +67,14 @@ const people = [
   },
 ]
 
-export default function Example({callback}) {
+export default function Example() {
   const [selected, setSelected] = useState(people[3])
   console.log(selected)
 
   return (
     <Listbox value={selected} onChange={(e)=>{
       
-      callback(selected)
+      setSelected(selected)
 
       
       

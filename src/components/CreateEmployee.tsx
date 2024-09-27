@@ -16,7 +16,7 @@ export default function CreateEmployee() {
 
   const { mutate } = api.employee.create.useMutation();
   const getManager = (value: string) => {
-    setManager(value);
+    setManager("Manager Not Assigned Yet");
   };
   return (
     <>
@@ -144,7 +144,7 @@ export default function CreateEmployee() {
             </div>
             <div>
               <div className="mt-2">
-                <SelectManagers callback={getManager} />
+                <SelectManagers/>
               </div>
             </div>
 

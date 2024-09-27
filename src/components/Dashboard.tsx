@@ -17,7 +17,7 @@ function editEmployee(){
 export default function Dashboard() {
   const { data: sessionData } = useSession();
   
-  const {data: employees, isLoading, isError} = api.employee.one.useQuery({email:sessionData?.user.email});
+  const {data: employees, isLoading, isError} = api.employee.one.useQuery({email:sessionData?.user.email!});
   
   console.log(employees)
   return (
@@ -30,23 +30,23 @@ export default function Dashboard() {
         <CardContent className="">
           <label htmlFor="">Name</label>
           <Typography gutterBottom variant="h5" component="div" className="py-5 border-y mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {!isLoading ? employees[0]?.name : "Loading Name"}
+            {!isLoading ? employees![0]?.name : "Loading Name"}
           </Typography>
           <label htmlFor="">Email</label>
           <Typography gutterBottom variant="h6" component="div" className="py-5 border-y mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {!isLoading ? employees[0]?.email : "Loading email"}
+            {!isLoading ? employees![0]?.email : "Loading email"}
           </Typography>
           <label htmlFor="">Contact Number</label>
           <Typography gutterBottom variant="h6" component="div" className="py-5 border-y mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {!isLoading ? employees[0]?.contactNumber : "Loading Name"}
+            {!isLoading ? employees![0]?.contactNumber : "Loading Name"}
           </Typography>
           <label htmlFor="">Manager</label>
           <Typography gutterBottom variant="h6" component="div" className="py-5 border-ymt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {!isLoading ? employees[0]?.manager : "Loading Name"}
+            {!isLoading ? employees![0]?.manager : "Loading Name"}
           </Typography>
           <label htmlFor="">Department</label>
           <Typography gutterBottom variant="h6" component="div" className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 py-5 border-y">
-            {!isLoading ? employees[0]?.department : "Loading Department"}
+            {!isLoading ? employees![0]?.department : "Loading Department"}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} className="py-5 border-y mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Employees Description, bio and comments

@@ -7,9 +7,13 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 import  EmailProvider from "next-auth/providers/email";
+import { CredentialsProvider } from "next-auth/providers/credentials";
+import {GitHubProvider} from "next-auth/providers/github"
 
 import { env } from "~/env";
 import { db } from "~/server/db";
+import { PrismaClient } from "@prisma/client";
+
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -37,6 +41,11 @@ declare module "next-auth" {
  *
  * @see https://next-auth.js.org/configuration/options
  */
+
+
+const prisma = new PrismaClient();
+
+
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session: ({ session, user }) => ({
@@ -49,6 +58,7 @@ export const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
+
     EmailProvider({
       server:{
         host: process.env.EMAIL_SERVER || "https://localhost:3000",
@@ -62,11 +72,11 @@ export const authOptions: NextAuthOptions = {
       ...(process.env.NODE_ENV !='production' 
           ? {
                 sendVerificationRequest({url}){
-                console.log("LOGIN_LINK",url)
+               return  console.log("LOGIN_LINK",url)
               },
             }
           :{})
-    })
+    }),
     /**
      * ...add more providers here.
      *
@@ -76,6 +86,8 @@ export const authOptions: NextAuthOptions = {
      *
      * @see https://next-auth.js.org/providers/github
      */
+
+   
   ],
 };
 

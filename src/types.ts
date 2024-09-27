@@ -32,6 +32,6 @@ export const createDepartmentSchema = z.object({
     id:z.string(),
     name:z.string(),
     status: z.boolean(),
-    manager: z.string(),
+    
 })
 export type DepartmentInput = z.TypeOf<typeof createDepartmentSchema>

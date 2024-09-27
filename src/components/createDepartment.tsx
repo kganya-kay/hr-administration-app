@@ -10,10 +10,7 @@ export default function CreateEmployee() {
     const [manager, setManager]=useState('Super User')
     const [status, setStatus]=useState(true)
 
-    const getManager = (value: string) => {
-      setManager(value);
-      
-    };
+  
     console.log(manager)
     const {mutate} = api.department.create.useMutation()
 
@@ -66,7 +63,7 @@ export default function CreateEmployee() {
 
             <div>
               <div className="mt-2">
-              <SelectManagers callback={getManager} />
+              <SelectManagers/>
               </div>
             </div>
 
