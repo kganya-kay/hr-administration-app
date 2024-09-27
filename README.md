@@ -1,29 +1,64 @@
-# Create T3 App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+# hr-administration-app
 
-## What's next? How do I make an app with this?
+## Description
+This project was developed using the T3 stack, which combines TypeScript, Tailwind CSS, tRPC, and Prisma. I enjoyed working on this project within the given timeframe, despite facing challenges while learning the framework. Transitioning from the MERN stack to the T3 stack has been a rewarding experience, and I'm excited about the potential it offers for future development.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
+- In-page routing for improved load times and user experience.
+- Responsive design powered by Tailwind CSS.
+- Database management with Prisma.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+To run the project in development mode, follow these steps:
 
-## Learn More
+1. **Clone the repository**:
+   ```bash
+   git clone [REPO_URL]
+   cd [REPO_NAME]
+   ```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+2. **Install dependencies**:
+   Run the `index.bat` file located in the root folder to install all necessary dependencies.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+3. **Sync the database**:
+   ```bash
+   npx prisma db push
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+4. **Set up environment variables**:
+   Rename the `.env.example` file to `.env` to configure your environment variables.
 
-## How do I deploy this?
+5. **Start the project**:
+   ```bash
+   npm run dev
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+6. **Access the app**:
+   Once the project is running, it will be available at [http://localhost:3000](http://localhost:3000). Please do not close the terminal.
+
+## Logging In
+1. Visit [http://localhost:3000](http://localhost:3000) and click "Sign in."
+2. Enter your email, and a login link will be sent to the terminal.
+3. Click the link to log in and access the app.
+
+## Technologies Used
+- **TypeScript**: Ensures type safety and enhances code quality.
+- **Tailwind CSS**: For styling and responsive design.
+- **tRPC**: For building type-safe APIs.
+- **Prisma**: For database access and management.
+
+## Future Improvements
+With more time, I aim to master the T3 stack and create even more dynamic, high-quality projects.
+
+## Conclusion
+I’ve had a fantastic experience working on this project, and I would love the opportunity to collaborate with the team further!
+
+Feel free to reach out with any questions or feedback.
+
+## License
+[MIT License](LICENSE)
+```
+
+Replace `[REPO_URL]` and `[REPO_NAME]` with your actual repository URL and name.
